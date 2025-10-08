@@ -1,0 +1,22 @@
+.button {
+    background-color:rgb(19, 19, 19);
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    color: white;
+}
+.button:hover {
+    background-color: rgb(58, 58, 58);
+    cursor: pointer;
+}
+
+div {
+float: left;
+background-color: gold;
+width: 50%;
+height: 500px;
+}
+

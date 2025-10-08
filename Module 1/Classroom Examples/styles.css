@@ -108,3 +108,12 @@ td {
   padding: 6px 10px;
   text-align: left;
 }
+
+.sameSize {
+  width: 40%;
+  height: 300px;
+  object-fit: cover;
+  margin: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow); 
+}

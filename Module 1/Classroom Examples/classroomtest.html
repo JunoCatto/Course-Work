@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modern Styled Page</title>
     <link rel="stylesheet" href="styles.css" />
+
+    <script>
+        function showAlert(element) {
+          alert("aaaah!")
+          element.style.backgroundColor = "#ff0000"; // Change button color to red
+          element.innerHTML = "Scared button!"
+        }
+    </script>
+<!-- Need to have function INPUT!! -->
+
   </head>
   <body>
     <div class="hero">
       <div class="hero-content">
         <h1>Welcome to Web 101</h1>
         <p>Your web development journey starts here</p>
-        <a href="https://www.institutedata.com/" class="button">Learn More</a>
+        <a  class="button" style="cursor:default" onclick="showAlert(this)">Press to scare the webpage!</a>
       </div>
     </div>
 
@@ -105,6 +115,38 @@
         </p>
       </section>
     </div>
+
+    <div class="container">
+  <section>
+    <h1>Random Pictures</h1>
+    <img
+      class="sameSize" 
+      src="https://picsum.photos/900/800" 
+      alt="Institute of Data Logo" width="50%" height="auto" 
+    >
+
+    <img 
+      class="sameSize" 
+      src="https://pbs.twimg.com/media/GiujJNyXkAALEGe?format=jpg&name=large"
+      alt="A cat called monkey!" width="50%" height="auto" 
+    >
+
+    </div>
+  </section>
+
+<!-- Form example -->
+<form action="/submit" method="post">
+
+  <div class="container">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" />
+
+  </div>
+
+</form>
 
     <footer>
       <p>&copy; 2025 Jake He. All rights reserved.</p>
