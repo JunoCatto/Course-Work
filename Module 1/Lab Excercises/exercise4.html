@@ -7,7 +7,8 @@
     <title>Document</title>
   </head>
   <body>
-    <form id="greetForm" onsubmit="greet(document.getElementById('name').value); return false;"">
+    <form id="greetForm" onsubmit="greet(document.getElementById('name').value); return false;""> 
+        <!-- Had to look up form submits for the above, but return false stops the form from submitting and reloading the page -->
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" />
       <input type="submit" value="Submit" />
