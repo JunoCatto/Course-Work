@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="exercise4.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="greetForm" onsubmit="greet(document.getElementById('name').value); return false;"">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" />
+      <input type="submit" value="Submit" />
+      <div>
+        <p id="greeting"></p>
+      </div>
+    </form>
+  </body>
+</html>
