@@ -1,11 +1,11 @@
 // From brief time with c# I know that classes are essentially templates for objects.
-
+// Looked up the syntax for this in JS.
 class book {
-  constructor(name, author, description, pages) {
-    this.name = "";
-    this.author = "";
-    this.description = "";
-    this.pages = 0;
+  constructor(Name, Author, Description, Pages) {
+    this.Name = Name;
+    this.Author = Author;
+    this.Description = Description;
+    this.Pages = Pages;
   }
 }
 
@@ -30,7 +30,7 @@ let book4 = new book(
 );
 let book5 = new book("The Hobbit", "J.R.R. Tolkien", "Fantasy novel", 310);
 
-book4.description = "A very cool book!";
-console.log(book4.description);
+book4.Description = "A very cool book!";
+console.log(book4.Description);
 
 let bookShelf = [book1, book2, book3, book4, book5];
