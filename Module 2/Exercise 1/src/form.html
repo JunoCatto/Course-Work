@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head> </head>
+
+<body>
+
+  <form method="post" action="http://localhost:3000/profile">
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lname"><br>
+    <div>
+      <input type="radio" id="C#" name="favouriteLanguage" value=" C#">
+      <label for="C#">C#</label>
+      <input type="radio" id="Python" name="favouriteLanguage" value=" Python">
+      <label for="Python">Python</label>
+      <input type="radio" id="JavaScript" name="favouriteLanguage" value="JavaScript">
+      <label for="JavaScript">JavaScript</label><br><br>
+    </div>
+    <div>
+      <label>What type of car do you own?</label> <br>
+      <select name="ownedCar">
+        <option value="Honda">Honda</option>
+        <option value="BMW">BMW</option>
+        <option value="Hyundai">Hyundai</option>
+        <option value="Toyota">Toyota</option>
+      </select>
+    </div>
+    <br>
+    <button type="submit">Submit Form!</button>
+
+  </form>
+
+  <br><br>
+  <header>
+    <nav>
+      <!-- works like <a href="/index.html">Home</a> -->
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main></main>
+
+  <footer>Copyright &copy; 2024</footer>
+</body>
+
+</html>

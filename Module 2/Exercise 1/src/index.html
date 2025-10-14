@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lab 1 Exercise!</title>
+  <meta charset="UTF-8" description="A basic webpage for learning HTML" keywords="HTML,CSS,JavaScript" author="Owen"
+    viewport="" />
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Welcome to my website!</h1>
+  <article>
+    <div>
+      <h2>Learning Elements!</h2>
+    </div>
+    <div>
+      <p>Included languages are:</p>
+    </div>
+    <div>
+      <p>JavaScript, HTMl, CSS</p>
+    </div>
+
+    <span>blah</span>
+    <span>blep</span>
+    <span>blop</span>
+
+    <p>
+      p represents paragraph without preserving spacing
+    </p>
+    <pre>
+    Text in         a pre element
+    is displayed in a fixed-width
+    font, and it preserves
+    both      spaces and
+    line breaks
+  </pre>
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4<ul>
+          <li>Item 4.1</li>
+          <li>Item 4.2</li>
+        </ul>
+      </li>
+    </ul>
+    <ol>
+      <li>Item the first</li>
+      <li>Item the second</li>
+      <li>Item the third</li>
+    </ol>
+  </article>
+
+
+  <article>
+    <h2>A second scarier article</h2>
+    <!-- Table example-->
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">First Header</th>
+          <th>Second Header</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First cell - first row</td>
+          <td>Second cell - first row</td>
+          <td>Third cell - first row</td>
+        </tr>
+        <tr>
+          <td>First cell - second row</td>
+          <td rowspan="2">Second cell - second row</td>
+          <td>Third cell - second row</td>
+        </tr>
+        <tr>
+          <td>First cell - third row</td>
+          <td>Second cell - third row</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+
+
+  <article>
+    <h2>The mighty third article </h2>
+    <img src="https://picsum.photos/400/400" alt="A random picture taken from a database" width="200px"
+      height="200px" />
+
+    <img src="assets/html_lab_image.jpg" alt="An image of sun washed clouds" width="200px" height="200px" /> <br>
+
+    <video autoplay width="250">
+      <source src="assets/flower.webm" type="video/webm">
+      Sorry, your browser doesn't support embedded videos.
+    </video>
+
+    <!-- Removed autoplay from audio because it was really loud lol-->
+    <audio controls src="assets/t-rex-roar.mp3" </audio>
+      Your browser does not support the <code>audio</code> element.
+    </audio>
+  </article>
+
+  <header>
+    <nav>
+      <!-- works like <a href="/index.html">Home</a> -->
+      <a href="form.html">Home</a>
+    </nav>
+  </header>
+
+  <main></main>
+
+  <footer>Copyright &copy; 2024</footer>
+</body>
+
+</html>
