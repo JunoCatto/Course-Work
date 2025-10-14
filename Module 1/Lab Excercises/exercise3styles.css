@@ -20,3 +20,13 @@ width: 50%;
 height: 500px;
 }
 
+
+
+/* ^ starting with */
+/* [class^="btn-"] {} */
+
+/*   $ ending with */
+/* [class$="-tertiary"] {} */
+
+/* * contains */
+/* [class*="e"] {}
