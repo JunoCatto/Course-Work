@@ -5,11 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="test styles.css">
 </head>
 
 <body>
-    <button class="button">Click me!</button>
+    <button class="button" onclick="move()">Click me!</button>
+
+    <div class="border">
+        <div class="innerbox" id="innerbox"></div>
+    </div>
+
+    <!-- Grabbed script from online -->
+    <script>
+        function move() {
+            var elem = document.getElementById("innerbox");
+            var width = 1;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+        }
+    </script>
+
+
+    <table class="table" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Row</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Apple</td>
+                <td>10</td>
+                <td>$5</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Banana</td>
+                <td>8</td>
+                <td>$4</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Orange</td>
+                <td>12</td>
+                <td>$6</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Grapes</td>
+                <td>15</td>
+                <td>$10</td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 
 </html>
