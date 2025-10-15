@@ -1,0 +1,137 @@
+/* I. Selectors */
+/* Put styles for questions 1.1, 1.2, 1.3 and 1.4 here */
+
+article {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid black;
+}
+.style-me1 {
+    color: red;
+}
+#style-me2 {
+    color: blue;
+}
+.style-me1#style-me2 {
+    color: purple;
+}
+
+/* Put styles for questions 2.1 and 2.2 here */
+
+.my-descendants-are-styled p {
+    background-color: red;
+}
+.my-children-are-styled>p {
+    background-color: lightgreen;
+}
+
+/* II. Box model and common properties */
+/* Put styles for questions 1-8 here */
+
+.box {
+    background-color: lightpink;
+    /*  4-value syntax  - sets all sides individually*/
+    margin: 5px 5px 5px 5px;
+    /*  2-value syntax - sets top and bottom, then left and right respectively */
+    margin: 5px 5px;
+    /*  single value syntax - sets all sides */
+    margin: 5px;
+    padding: 20px;
+    /* Because the 3rd box is styled within the HTML we have to set !important to override */
+    height:  100px !important;
+    width: 90%;
+    /* border: solid/dashed/double/inset etc */
+    border: dashed 10px maroon;
+   
+    box-sizing: content-box;
+    /* Border-box combines all the sizing elements (border,padding,margin) into the overall width/height */
+    overflow: hidden;
+
+    border-radius: 10px;
+    background-image: url('../assets/images/img1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+/* III. Positioning */
+/* Put styles for questions 1-3 here */
+
+.position-absolute {
+    position: absolute;
+    top: 0px;
+    background-color:lightslategray;
+}
+.position-relative {
+    position: relative;
+    background-color: lightsalmon;
+    left: 20px;
+}
+.position-sticky {
+    position: sticky;
+    background-color: green;
+    top: 0px;
+}
+
+
+/* IV. Styling text */
+/* Put styles for questions 1-10 here */
+
+.text-style {
+    color:red;
+    font-size: 25px;
+    line-height: 2;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+/* V. Styling links */
+/* Put styles for questions 1-3 here */
+
+a:link {
+    color: orange;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover {
+color: orangered;
+}
+a:active {
+    color: blue;
+}
+a:focus {
+    color:red; 
+    text-decoration:underline;
+}
+a:visited {
+    color:pink; 
+    text-decoration:underline;
+}
+
+/* VI. calc() */
+/* Put styles for questions 1-3 here */
+
+.calc-style {
+    width: 100vw;
+    background-color:bisque;
+    width: calc(100vw - 100px);
+}
+.fixed-width-col {
+    display: inline-block;
+    width: 350px;
+}
+
+.fluid-col {
+    display: inline-block;
+    /* for some reason 100% doesn't work? perhaps because slight overlap */
+    width: calc(99% - 350px);
+}
