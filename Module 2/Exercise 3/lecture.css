@@ -1,0 +1,33 @@
+:root {
+}
+div {
+    overflow: hidden;
+}
+li {
+    text-align: left;
+}
+
+#container {
+    display:flex;
+    flex-direction:row;
+}
+
+header, footer {
+    text-align: center;
+    height:100px;
+    background-color:lightblue;
+}
+
+#div1, #div3 {
+    background-color: plum;
+    height: 200px;
+    min-width: 25vw;
+    flex-shrink: 5;
+}
+
+#div2 {
+    background-color: lightpink;
+        height: 200px;
+        width: 100vh;
+}
+
