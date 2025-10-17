@@ -5,9 +5,9 @@ body {
 }
 
 /* border checker */
- div {
-    border: 3px dashed red;
- }
+/* div {*/
+/*    border: 3px dashed red;*/
+/* }*/
 
 .header {
     display: flex;
