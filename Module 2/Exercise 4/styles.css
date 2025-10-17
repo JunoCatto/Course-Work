@@ -31,7 +31,7 @@ body {
      rather than the container */
     padding: 0;
     min-width: 200px;
-    overflow:visible;
+    overflow:hidden;
     z-index: -3;
 }
 
@@ -98,6 +98,7 @@ body {
 /* Lists */
 ul {
     padding: 10px;
+    overflow:hidden;
 }
 
 li {
@@ -118,6 +119,7 @@ h3{
     width: 100%;
     box-sizing: border-box;
     margin:0;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
 }
 .icon-box {
     display:flex;
