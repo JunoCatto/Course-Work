@@ -1,0 +1,96 @@
+body {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    font-family: "Roboto Light", sans-serif;
+}
+
+/* border checker */
+ div {
+    border: 3px dashed red;
+ }
+
+.header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #181825;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 1px;
+}
+.container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+.sidebar {
+    display: flex;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #181825;
+    flex-direction: column;
+    align-items: stretch; /* had this set as center so
+    the text inside was only filling the INFO box
+     rather than the container */
+    padding: 0;
+    min-width: 30vw;
+}
+
+.info {
+    width: 100%;
+}
+li {
+    font-size: 18px;
+}
+h2{
+    margin:0;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-decoration: underline;
+    text-align: center;
+}
+h3{
+    border-radius: 5px;
+    text-align: center;
+    background-color: #11111b;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin:0;
+}
+.icons {
+    display:flex;
+    justify-content: space-evenly;
+    padding:20px;
+}
+#twitter-icon {
+    background-color: white;
+    border-radius: 50%
+}
+.info>ul {
+    list-style: none;
+}
+
+.inner-container {
+    flex-grow: 1;
+    display: flex;
+    margin: 5px;
+    background-color: #181825;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+/* Media width Queries */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+}
+/*.slope {*/
+/*    position:sticky;*/
+/*    bottom:0;*/
+/*    border-bottom: 50px solid;*/
+/*    border-left: 100vw solid transparent;*/
+/*    width:1px;*/
+/*}*/
