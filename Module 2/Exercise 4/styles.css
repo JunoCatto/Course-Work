@@ -9,21 +9,14 @@ body {
 /*    border: 3px dashed red;*/
 /* }*/
 
-.header {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    background-color: #181825;
-    border-radius: 5px;
-    margin: 5px;
-    padding: 1px;
-}
+
 .container
 {
     display: flex;
     flex-direction: row;
     justify-content: stretch;
 }
+
 .sidebar {
     display: flex;
     margin: 5px;
@@ -34,20 +27,46 @@ body {
     the text inside was only filling the INFO box
      rather than the container */
     padding: 0;
-    min-width: 30vw;
+    width: 15vw;
+    min-width: 200px;
+}
+
+.profile{
+    border-bottom: 1px solid rgba(180, 190, 254, 0.2);
+    margin: auto auto 10px;
+    width: 80%;
+
+}
+.profile>h2{
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top:20px;
+    text-transform: uppercase;
+    text-align: center;
+    padding:10px;
+}
+.profile h2 span{
+    font-size: 0.8em;
+    font-weight: 300;
 }
 
 .info {
     width: 100%;
 }
-li {
-    font-size: 18px;
+/* Lists */
+ul {
+    padding: 10px;
 }
+
+li {
+    font-size: 1em;
+    padding:10px;
+}
+
 h2{
     margin:0;
     padding-top:10px;
     padding-bottom:10px;
-    text-decoration: underline;
     text-align: center;
 }
 h3{
@@ -59,10 +78,12 @@ h3{
     box-sizing: border-box;
     margin:0;
 }
-.icons {
+.icon-box {
     display:flex;
     justify-content: space-evenly;
-    padding:20px;
+    margin:auto 10% ;
+    border-top: 1px solid rgba(180, 190, 254, 0.2);
+    padding: 10px 0;
 }
 #twitter-icon {
     background-color: white;
@@ -85,6 +106,10 @@ h3{
 @media (max-width: 600px) {
     .container {
         flex-direction: column;
+    }
+    .sidebar {
+        width: unset;
+        max-width: unset;
     }
 }
 /*.slope {*/
