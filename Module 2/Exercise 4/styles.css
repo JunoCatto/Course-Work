@@ -129,8 +129,12 @@ h3{
     padding: 10px 0;
 }
 #twitter-icon {
+    height:40px;
     background-color: white;
     border-radius: 50%
+}
+#github-icon{
+    height:40px;
 }
 .info>ul {
     list-style: none;
@@ -157,5 +161,8 @@ footer {
     .sidebar {
         width: unset;
         max-width: unset;
+    }
+    #twitter-icon, #github-icon{
+        height:60px;
     }
 }
