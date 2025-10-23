@@ -69,7 +69,12 @@ function replaceMiddleAnimal(arr, newAnimal){
 }
 
 function findMatchingAnimals(arr, searchFor){
-    return arr.filter((animal) => animal.startsWith(searchFor));
+    let toLower = searchFor.trim().toLowerCase()
+    let match = arr.filter((animal) => animal.toLowerCase().startsWith(toLower));
+    if (match.length === 0){
+        return console.log("Please enter a valid animal!")
+    }
+    return match;
 }
 
 animals.push('Dog', 'Cat') // Adds to end
@@ -77,7 +82,7 @@ animals.unshift('Penguin', 'Bird') // Adds to start
 animals.sort() // Sorts alphabetically
 console.log(replaceMiddleAnimal(animals, 'Kitten'))
 
-const matchedAnimals = findMatchingAnimals(animals, 'Kitten')
+const matchedAnimals = findMatchingAnimals(animals, 'bird')
 
 console.log(matchedAnimals)
 console.log(animals)
