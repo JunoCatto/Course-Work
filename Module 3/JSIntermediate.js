@@ -184,7 +184,7 @@ console.log(currencyOperation(tenCents,twentyCents,"*", 10))
 function unique(duplicatesArray){
     const newArray=[];
     return duplicatesArray.filter((item) => newArray.includes(item)? null : newArray.push(item))
-    // In spoken words "It searches for the first instance of "item" within the array, placing them into the newArray.
+    // In spoken words: It searches for the first instance of "item" within the array, placing them into the newArray.
     // if the newArray already includes that item it does nothing.
 }
 
