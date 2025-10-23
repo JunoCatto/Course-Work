@@ -131,10 +131,13 @@ h3{
 #twitter-icon {
     height:40px;
     background-color: white;
-    border-radius: 50%
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.1);
 }
 #github-icon{
     height:40px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.1);
 }
 .info>ul {
     list-style: none;
