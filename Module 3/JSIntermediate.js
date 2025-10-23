@@ -377,7 +377,7 @@ console.log(((3600 * today.getHours()) + (today.getMinutes() * 60)) + today.getS
 const birthDate = new Date('2001-09-06')
 console.log(`I am ${Math.abs(today.getFullYear() - birthDate.getFullYear())} years, 
 ${Math.abs(today.getMonth() - birthDate.getMonth())} month, 
-and ${Math.abs(today.getDay() - birthDate.getDay())} days old.`)
+and ${Math.abs(today.getDay() - birthDate.getDay())} days old.`) // Math.abs to ensure that the returned value can't be negative.
 
 // d) Write a function daysInBetween(date1, date2) which calculates and returns the amount
 // of days in between the two given dates.
