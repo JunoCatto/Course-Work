@@ -79,7 +79,24 @@ console.log(sortByPrice())
 // Input: [1, 2, 3, 4]
 //
 // Output: [2, 4, 6, 8]
-//
+
+let array = [1,2,3,4]
+
+function multiplyBy2(arr){
+    return arr.map((item) => item * 2)
+}
+
+console.log(multiplyBy2(array))
+
+
+
+
+
+
+
+
+
+
 // Exercise 2: Filter Even Numbers
 //
 // Given an array of numbers, create a new array that only contains even numbers.
@@ -89,7 +106,14 @@ console.log(sortByPrice())
 // Input: [1, 2, 3, 4, 5, 6]
 //
 // Output: [2, 4, 6]
-//
+
+let toEvenArray = [1,2,3,4,5,6]
+
+function evenOnly(array){
+    return array.filter((item) => item % 2 === 0)
+}
+console.log(evenOnly(toEvenArray))
+
 // Exercise 3: Convert Strings to Uppercase
 //
 // You are given an array of strings. Create a new array where all strings are converted to uppercase.
