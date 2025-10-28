@@ -174,7 +174,7 @@ car.description(); //works
 
 // b) Change the year for the car by creating a clone of the original and overriding it
 
-carClone = {...car, year:2025, make:"Hyundai", model:"Tucson"}
+let carClone = {...car, year:2025, make:"Hyundai", model:"Tucson"}
 
 setTimeout(() => carClone.description(),200);
 
