@@ -65,7 +65,6 @@ const tasks = [
 ];
 
 async function runSequential(tasks) {
-    // TODO: Run each task one after another
     try {
         for (let task of tasks) {
             let result = await task();
@@ -120,9 +119,15 @@ getMultipleUsers([1, 2, 3]).then(console.log);
 // 7️⃣ Handle errors gracefully
 async function safeFetchUser(id) {
     // TODO: Wrap fetch in try/catch and handle errors clearly
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+        return await response.json();
+    } catch (e) {console.error(e)}
+
 }
 
-// Example:
+safeFetchUser(1).then(console.log)
+// Example
 // safeFetchUser(99999).then(console.log);
 
 

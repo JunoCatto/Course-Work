@@ -387,19 +387,19 @@ randomDelay(() => console.log('There appears to have been a delay.'))
 // run 'npm install node-fetch'
 // run 'npm pkg set type=module'
 import fetch from 'node-fetch'
+
 globalThis.fetch = fetch
 
 
 
 function fetchURLData(url) {
-    let fetchPromise = fetch(url).then(response => {
+    return fetch(url).then(response => {
         if (response.status === 200) {
             return response.json();
         } else {
             throw new Error(`Request failed with status ${response.status}`);
         }
     });
-    return fetchPromise;
 }
 
 fetchURLData('https://jsonplaceholder.typicode.com/todos/1')
