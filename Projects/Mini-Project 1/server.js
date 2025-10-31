@@ -1,16 +1,24 @@
 // Simple locally ran server for testing
 
+const { error } = require("console");
 const http = require("http");
 const fs = require("fs").promises;
 
 const host = "localhost";
-const port = 3000;
+const port = 8000;
 
 async function fetchPlayer(user) {
-  const response = await fetch(
-    `https://secure.runescape.com/m=hiscore_oldschool/index_lite.json?player=${user}`
-  );
-  return await response.json();
+  try {
+    const response = await fetch(
+      `https://secure.runescape.com/m=hiscore_oldschool/index_lite.json?player=${user}`
+    );
+    if (response.status !== 200) {
+      return { error: "Player not found" };
+    }
+    return await response.json();
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 const requestListener = async function (request, response) {
@@ -19,12 +27,9 @@ const requestListener = async function (request, response) {
     // API call
     case "/api/player":
       let data = await fetchPlayer(splitUrl[1]);
-      console.log(splitUrl[1]);
-      const cleanedData = data.skills.map((data) => ({
-        name: data.name,
-        level: data.level,
-      }));
-      const res = JSON.stringify(cleanedData);
+      // Cleaning data to reduce properties
+
+      const res = JSON.stringify(data);
       try {
         response.setHeader("Content-Type", "application/json");
         response.writeHead(200);
@@ -34,7 +39,7 @@ const requestListener = async function (request, response) {
         response.end(err);
       }
       break;
-    // Default
+    // Case for the opening page
     case "/":
       fs.readFile("./index/index.html")
         .then((contents) => {
