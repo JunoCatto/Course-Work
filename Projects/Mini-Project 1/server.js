@@ -5,7 +5,7 @@ const http = require("http");
 const fs = require("fs").promises;
 
 const host = "localhost";
-const port = 8000;
+const port = 3000;
 
 async function fetchPlayer(user) {
   try {

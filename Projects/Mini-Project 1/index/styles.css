@@ -1,4 +1,92 @@
+body {
+    background-color: #1e1e2e
+}
+text {
+    color: #cdd6f4
+}
+
 .container {
     display:flex;
     flex-direction:column;
+}
+#formcontainer {
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    display:flex;
+    flex-direction:column;
+    justify-content: stretch;
+}
+#userInput {
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+}
+#userInput button {
+    margin-left: 5px;
+}
+
+
+#playerInfo {
+    background-color:#181825 ;
+    padding:10px;
+    margin-top: 20px;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    border-radius:10px;
+}
+#playerInfo > div {
+    background-color: #11111b;
+    flex-grow: 1;
+    padding: inherit;
+    margin: 5px;
+    border-radius: inherit;
+}
+
+#tabContainer {
+    display:flex;
+    flex-direction:column;
+    justify-content: stretch;
+    margin-top: 20px;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    border-radius: 10px;
+    background-color: #181825;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    padding: 10px;
+}
+
+#tabSelector {
+    display: flex;
+    justify-content: center;
+}
+
+#skillContainer {
+   /* automatically grows to fit the div */
+    display: none;
+    grid-template-rows: 100px;
+    grid-auto-rows: 100px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    border-radius: 10px;
+    background-color: #181825;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    padding: 10px;
+    
+}
+
+.skillsDiv {
+    min-width:200px;
+    background-color: #11111b;
+    padding: inherit;
+    margin: 5px;
+    border-radius: inherit;
+}
+
+#spinner {
+    display: none;
 }
