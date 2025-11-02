@@ -5,6 +5,10 @@ text {
     color: #cdd6f4
 }
 
+html {
+  scrollbar-gutter: stable; /* reserves space for scrollbar */
+}
+
 .container {
     display:flex;
     flex-direction:column;
@@ -75,8 +79,9 @@ text {
     background-color: #181825;
     margin-left: 2.5vw;
     margin-right: 2.5vw;
+    margin-bottom: 2.5vh;
     padding: 10px;
-    
+    overflow: hidden;
 }
 
 .skillsDiv {
@@ -91,33 +96,37 @@ text {
     border-radius: inherit;
 }
 .skillTop {
-  display: flex;
-  align-items: center;
-  gap: 8px;  /* spacing between icon and text */
+    display: flex;
+    align-items: center;
+    gap: 8px;  /* spacing between icon and text */
 }
 
-.skillName {
+/* .skillName {
     font-weight: bold;
     font-size: 16px;
-   line-height: 24px;
-}
+    line-height: 24px;
+} */
 .skillIcon {
-  display: inline-flex;           /* Centers the icon */
-  align-items: center;
-  justify-content: center;
-  width: 40px;                    /* Square width */
-  height: 40px;                   /* Square height */
-  border: 2px solid #333;         /* Border color */
-  border-radius: 6px;             /* Optional rounded corners */
-  margin-right: 8px;              /* Space between icon and text */
-  box-sizing: border-box;
+    display: inline-flex;           
+    align-items: center;
+    justify-content: center;
+    width: 40px;                   
+    height: 40px;                   
+    border: 2px solid #333;         
+    border-radius: 6px;             
+    margin-right: 8px;              
+    box-sizing: border-box;
 }
 .skillIcon i {
-  width: 24px;                    /* Icon size */
-  height: 24px;
+    width: 24px;                    /* Icon size */
+    height: 24px;
 }
 
 #spinner {
     display: none;
 }
 
+.rank {
+   color: #a6adc8;
+   font-size: 14px;
+}
