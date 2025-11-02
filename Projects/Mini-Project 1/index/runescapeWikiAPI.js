@@ -106,6 +106,7 @@ function renderSkills() {
   spinner.style.display = "none";
 }
 function renderMinigames() {
+  minigameContainer.innerHTML = "";
   const cleanedData = userData.activities.map((data) => ({
     name: data.name,
     score: data.score,
@@ -175,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
     )
       return;
     currentUser = userInput.value.trim().toLowerCase();
-    console.log(currentUser);
     try {
       await fetchData(currentUser);
     } catch (error) {
