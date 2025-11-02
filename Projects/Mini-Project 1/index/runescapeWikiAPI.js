@@ -147,7 +147,7 @@ function swapTab(tabName) {
       skillContainer.style.display = "grid";
       break;
 
-    case "Minigames":
+    case "Activities":
       minigameContainer.style.display = "grid";
       break;
   }
