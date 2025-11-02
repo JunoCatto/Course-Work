@@ -107,15 +107,16 @@ function renderSkills() {
 }
 function renderMinigames() {
   minigameContainer.innerHTML = "";
-  const cleanedData = userData.activities.map((data) => ({
-    name: data.name,
-    score: data.score,
-    rank: data.rank,
-  }));
+  // Filter out minigames with score -1, and sorts by score.
+  const cleanedData = userData.activities
+    .filter((data) => data.score !== -1)
+    .map((data) => ({
+      name: data.name,
+      score: data.score,
+      rank: data.rank,
+    }))
+    .sort((a, b) => b.score - a.score);
   cleanedData.forEach((minigame) => {
-    if (minigame.name === "Clue Scrolls (all)") return;
-    if (minigame.score === -1) return;
-
     const minigameDiv = document.createElement("div");
     minigameDiv.classList.add("skillsDiv");
     minigameDiv.innerHTML = `<div class="skillTop">
