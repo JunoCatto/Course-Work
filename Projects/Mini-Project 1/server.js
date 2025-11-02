@@ -76,6 +76,18 @@ const requestListener = async function (request, response) {
           response.end(err);
         });
       break;
+    case "/icons.js":
+      fs.readFile("./index/icons.js")
+        .then((contents) => {
+          response.setHeader("Content-Type", "text/javascript");
+          response.writeHead(200);
+          response.end(contents);
+        })
+        .catch((err) => {
+          response.writeHead(500);
+          response.end(err);
+        });
+      break;
   }
 };
 const server = http.createServer(requestListener);

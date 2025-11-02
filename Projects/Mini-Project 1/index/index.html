@@ -4,8 +4,9 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <!-- API -->
-    <script src="runescapeWikiAPI.js" defer></script>
-    <script type="moduele" src="icons.js" defer></script>
+    <script type="module" src="./runescapeWikiAPI.js" defer></script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -29,7 +30,7 @@
 <body>
     <div class="text-center my-4">
         <h1>OSRS Skill Lookup</h1>
-        <p>Enter your OSRS username to see your skills!</pp>
+        <p>Enter your OSRS username to see your skills!</p>
     </div>
     <div id="formcontainer">
         <form id="userInput" class="d-flex" method="POST" onsubmit="return false;">
@@ -40,25 +41,26 @@
     <div class="container" id="mainContainer">
     </div>
 
-
-    <div id="playerInfo" class="d-flex justify-content-around">
-        <div id="playerLevel">
-            <p>Overall Level</p>
-        </div>
-        <div id="playerExp">
-            <p>Total Experience</p>
-        </div>
-        <div id="playerRank">
-            <p>Rank</p>
+    <div id="playerContainer">
+        <div id="playerInfo" class="d-flex justify-content-around">
+            <div id="playerLevel">
+                <p>Overall Level</p>
+            </div>
+            <div id="playerExp">
+                <p>Total Experience</p>
+            </div>
+            <div id="playerRank">
+                <p>Rank</p>
+            </div>
         </div>
     </div>
 
     <div id="tabContainer">
         <nav id="tabSelector" class="nav nav-pills flex-column flex-sm-row" style="padding:5px;">
-            <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Skills</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-            <a class="flex-sm-fill text-sm-center nav-link disabled" aria-disabled="true">Disabled</a>
+            <a id="Skills" class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Skills</a>
+            <a id="Minigames" class="flex-sm-fill text-sm-center nav-link" href="#">Minigames</a>
+            <a id="Bosses" class="flex-sm-fill text-sm-center nav-link" href="#">Bosses</a>
+            <a id="Statistics" class="flex-sm-fill text-sm-center nav-link" href="#">Statistics</a>
         </nav>
     </div>
 </body>
@@ -68,20 +70,15 @@
 
 
 <!-- Skill Divs -->
-<div id="skillContainer">
+<div id="skillContainer" class="tabContainer">
     <div class="d-flex justify-content-center" id="spinner" style="margin-top: 10px;">
         <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 </div>
-<!-- <div class="skillsDiv">
-        <p>Attack</p>
-    </div>
-    <div class="skillsDiv"></div>
-    <div class="skillsDiv"></div>
-    <div class="skillsDiv"></div> -->
-</div>
+<div id="minigameContainer" class="tabContainer"></div>
+</body>
 
 
 </html>

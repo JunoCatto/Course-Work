@@ -25,8 +25,10 @@ text {
     margin-left: 5px;
 }
 
-
-#playerInfo {
+#playerContainer {
+    display: none;
+}
+#playerInfo { 
     background-color:#181825 ;
     padding:10px;
     margin-top: 20px;
@@ -43,7 +45,7 @@ text {
 }
 
 #tabContainer {
-    display:flex;
+    display: none;
     flex-direction:column;
     justify-content: stretch;
     margin-top: 20px;
@@ -61,11 +63,9 @@ text {
     justify-content: center;
 }
 
-#skillContainer {
+.tabContainer {
    /* automatically grows to fit the div */
     display: none;
-    grid-template-rows: 100px;
-    grid-auto-rows: 100px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
     margin-top: 20px;
@@ -80,13 +80,44 @@ text {
 }
 
 .skillsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     min-width:200px;
     background-color: #11111b;
     padding: inherit;
     margin: 5px;
     border-radius: inherit;
 }
+.skillTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;  /* spacing between icon and text */
+}
+
+.skillName {
+    font-weight: bold;
+    font-size: 16px;
+   line-height: 24px;
+}
+.skillIcon {
+  display: inline-flex;           /* Centers the icon */
+  align-items: center;
+  justify-content: center;
+  width: 40px;                    /* Square width */
+  height: 40px;                   /* Square height */
+  border: 2px solid #333;         /* Border color */
+  border-radius: 6px;             /* Optional rounded corners */
+  margin-right: 8px;              /* Space between icon and text */
+  box-sizing: border-box;
+}
+.skillIcon i {
+  width: 24px;                    /* Icon size */
+  height: 24px;
+}
 
 #spinner {
     display: none;
 }
+

@@ -1,14 +1,25 @@
-// Import Lucide from the ESM CDN build
-import {
-  createIcons,
-  icons,
-} from "https://unpkg.com/lucide@latest/dist/esm/lucide.js";
-
-// Render any existing <i data-lucide="..."> elements
-createIcons({ icons });
-
-// Dynamically add another icon
-document.body.insertAdjacentHTML("beforeend", '<i data-lucide="swords"></i>');
-
-// Render the new one as well
-createIcons({ icons });
+export const iconMap = {
+  Attack: "sword",
+  Defence: "shield",
+  Strength: "zap",
+  Hitpoints: "heart",
+  Ranged: "bow-arrow",
+  Prayer: "sparkles",
+  Magic: "wand-sparkles",
+  Cooking: "chef-hat",
+  Woodcutting: "axe",
+  Fletching: "navigation",
+  Fishing: "fish",
+  Firemaking: "flame",
+  Crafting: "scissors",
+  Smithing: "hammer",
+  Mining: "pickaxe",
+  Herblore: "flask-conical",
+  Agility: "activity",
+  Thieving: "hand",
+  Slayer: "skull",
+  Farming: "sprout",
+  Runecraft: "circle-slash-2",
+  Hunter: "footprints",
+  Construction: "home",
+};
