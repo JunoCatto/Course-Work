@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-image {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="card-list"></div>
+
+    <template id="card-template">
+        <div class="card">
+            <h2 class="card-title"></h2>
+            <p class="card-text"></p>
+        </div>
+        <img class="card-image" src="" alt="">
+    </template>
+    <!-- Exercise 1/2 -->
+
+    <script>
+        const artists = [{
+            name: "Van Gogh",
+            portfolio: [
+                {
+                    title: "portrait", url:
+                        "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"
+                },
+                { title: "sky", url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg" },
+            ]
+        },
+        {
+            name: "Picasso",
+            portfolio: [
+                {
+                    title: "portrait", url:
+                        "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"
+                },
+                { title: "sky", url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg" },
+            ]
+        }
+        ];
+        // const data = [
+        //     { name: 'bob', age: 23 },
+        //     { name: 'alice', age: 39 }
+        // ];
+        function addCard(title, text, imageUrl) {
+            const template = document
+                .getElementById("card-template")
+                .content.cloneNode(true);
+
+            template.querySelector('.card-title').innerText = title;
+            template.querySelector('.card-text').innerText = text;
+            template.querySelector('.card-image').src = imageUrl;
+            document.querySelector('#card-list').appendChild(template);
+        }
+        artists.forEach(artist => addCard(artist.name, artist.portfolio[0].title, artist.portfolio[0].url));
+    </script>
+</body>
+
+</html>

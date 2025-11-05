@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form" action="#" method="post">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="content" placeholder="Content">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="card-list"></div>
+
+    <template id="card-template">
+        <div class="card">
+            <h2 class="card-title"></h2>
+            <p class="card-text"></p>
+        </div>
+    </template>
+
+</body>
+<script>
+    let news = [
+        {
+            id: 1, title: 'Election Results',
+            content: "Newly elected minister..."
+        },
+        {
+            id: 2, title: 'Sporting Success',
+            content: "World Cup winners..."
+        },
+        {
+            id: 3, title: 'Tornado Warning',
+            content: "Residents should prepare..."
+        }
+    ];
+    // Form handler
+    const form = document.getElementById('form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const title = form.title.value; // gets the value of title
+        const content = form.content.value; // gets the value of content
+        news.push({ id: news.length + 1, title, content });
+        console.log(news); // sanity check
+    });
+
+
+    const cardListElement = document.getElementById("card-list");
+
+    function addCard(title, text) {
+        const template = document
+            .getElementById("card-template")
+            .content.cloneNode(true);
+
+        template.querySelector('.card-title').innerText = title;
+        template.querySelector('.card-text').innerText = text;
+        document.querySelector('#card-list').appendChild(template);
+    }
+    const handler = () => {
+        cardListElement.innerHTML = '';
+        news.forEach((n) => {
+            addCard(n.title, n.content);
+        })
+    }
+    setInterval(handler, 5000);
+</script>
+
+</html>
