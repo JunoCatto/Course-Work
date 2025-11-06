@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.7.2/luxon.min.js"></script>
+</head>
+
+<body>
+    <div id="result1"></div>
+    <div id="result2"></div>
+    <div id="result3"></div>
+    <div id="result4"></div>
+</body>
+
+<script>
+    // 1) 2)
+    // time between birthday and present
+    const birthday = luxon.DateTime.fromISO("2001-09-06");
+    const present = luxon.DateTime.local();
+    const differenceBetween = present.diff(birthday, ["years", "months", "days"]).toObject();
+    console.log(differenceBetween)
+    document.getElementById("result1").innerText = differenceBetween.years + " years, " + differenceBetween.months + " months, " + differenceBetween.days.toFixed(2) + " days";
+    // 3)
+    const date1 = luxon.DateTime.fromISO("1928-01-01");
+    const date2 = luxon.DateTime.fromISO("1968-12-28");
+    const diff1 = present.diff(date1).milliseconds;
+    const diff2 = present.diff(date2).milliseconds;
+    const closest = diff1 < diff2 ? date1 : date2;
+    document.getElementById("result2").innerText = `The closest date to today is ${closest.toISODate()}`;
+    // 4)
+    // Using the dates from the previous exercise
+    function compareDates(firstDate, secondDate) {
+        let result;
+        if (firstDate < secondDate) { result = `${firstDate.toISODate()} is earlier than ${secondDate.toISODate()}`; }
+        else if (firstDate > secondDate) { result = `${firstDate.toISODate()} is later than ${secondDate.toISODate()}`; }
+        else { result = `${firstDate.toISODate()} is the same as ${secondDate.toISODate()}`; }
+        document.getElementById("result3").innerText = result;
+    }
+    compareDates(date1, date2);
+    // 5)
+    const timeLondon = luxon.DateTime.now().setZone("Europe/London");
+    document.getElementById("result4").innerText = `The time in london is ${timeLondon.toLocaleString(luxon.DateTime.TIME_24_SIMPLE)}`;
+</script>
+
+</html>
