@@ -1,0 +1,218 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Calculator API",
+    "version": "1.0.0",
+    "description": "Simple API that performs basic math operations."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000",
+      "description": "Local server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Calculator",
+      "description": "API for Calculus in the system"
+    }
+  ],
+  "paths": {
+    "/add": {
+      "get": {
+        "tags": ["Calculator"],
+        "summary": "Add two numbers",
+        "description": "Returns the sum of query parameters a and b.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "a",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "description": "First addend"
+          },
+          {
+            "in": "query",
+            "name": "b",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "description": "Second addend"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful addition",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "number",
+                      "example": 5
+                    }
+                  },
+                  "required": ["result"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/minus": {
+         "get": {
+        "tags": ["Calculator"],
+        "summary": "Subtract two numbers",
+        "description": "Returns the sum of query parameters a and b.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "a",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "description": "First addend"
+          },
+          {
+            "in": "query",
+            "name": "b",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "description": "Second addend"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful subtraction",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "number",
+                      "example": 5
+                    }
+                  },
+                  "required": ["result"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/multiply": {
+         "get": {
+        "tags": ["Calculator"],
+        "summary": "Multiply two numbers",
+        "description": "Returns the sum of query parameters a and b.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "a",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "description": "First addend"
+          },
+          {
+            "in": "query",
+            "name": "b",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "description": "Second addend"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful multiplication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "number",
+                      "example": 5
+                    }
+                  },
+                  "required": ["result"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/divide": {
+         "get": {
+        "tags": ["Calculator"],
+        "summary": "Divide two numbers",
+        "description": "Returns the sum of query parameters a and b.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "a",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "description": "First addend"
+          },
+          {
+            "in": "query",
+            "name": "b",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "description": "Second addend"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful division",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "number",
+                      "example": 5
+                    }
+                  },
+                  "required": ["result"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      } 
+    }
+  }
+}

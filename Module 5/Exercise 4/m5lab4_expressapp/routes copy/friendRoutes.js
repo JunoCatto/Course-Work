@@ -1,7 +1,7 @@
 import { Router } from "express";
-const router = Router();
 import friends from "../models/friends.js";
 
+const router = Router();
 // TODO - #1: Add support to the 'filter' endpoint for a new query parameter 'letter' which filters friends by starting letter
 
 // TODO - #2: Modify the 'info' route to only return the user-agent, content-type and accept header data
@@ -14,7 +14,8 @@ import friends from "../models/friends.js";
 
 // default endpoint, gets all friends
 router.get("/", (req, res) => {
-  res.json(friends);
+  // Default: return all friends
+  res.json({ records: friends, count: friends.length });
 });
 
 // filter endpoint, gets friends matching the gender from 'gender' query parameter ie. /friends/filter?gender=male
@@ -22,29 +23,64 @@ router.get("/", (req, res) => {
 router.get("/filter", (req, res) => {
   console.log(req.query);
   let filterGender = req.query.gender;
+
+  // age
+  let filterAge = req.query.age;
+
+  // letter
   let filterLetter = req.query.letter;
 
   let matchingFriends = [...friends];
-  let matchingFriendsLetter = [...friends];
 
   if (filterLetter) {
-    matchingFriendsLetter = matchingFriendsLetter.filter((friend) => {
-      return friend.name.toLowerCase().startsWith(filterLetter.toLowerCase());
-    });
+    matchingFriends = matchingFriends.filter(
+      (friend) => friend.name[0].toLowerCase() === filterLetter.toLowerCase()
+    );
   }
+
   if (filterGender) {
     matchingFriends = matchingFriends.filter(
       (friend) => friend.gender == filterGender
     );
   }
-  const matchedFriends = [...matchingFriends, ...matchingFriendsLetter];
+
+  if (filterAge) {
+    // Match an optional operator followed by a number
+    const match = filterAge.match(/(>=|<=|>|<|=)?(\d+)/);
+
+    if (match) {
+      const [, comparator = "=", ageNumStr] = match;
+      const ageNum = Number(ageNumStr);
+
+      switch (comparator) {
+        case ">":
+          matchingFriends = matchingFriends.filter((f) => f.age > ageNum);
+          break;
+        case "<":
+          matchingFriends = matchingFriends.filter((f) => f.age < ageNum);
+          break;
+        case ">=":
+          matchingFriends = matchingFriends.filter((f) => f.age >= ageNum);
+          break;
+        case "<=":
+          matchingFriends = matchingFriends.filter((f) => f.age <= ageNum);
+          break;
+        default: // "="
+          matchingFriends = matchingFriends.filter((f) => f.age === ageNum);
+      }
+    }
+  }
 
   if (matchingFriends.length > 0) {
     // return valid data when the gender matches
-    res.status(200).json(matchingFriends);
+    res
+      .status(200)
+      .json({ records: matchingFriends, count: matchingFriends.length });
   } else {
     // and an error response when there are no matches
-    res.status(404).json({ error: "No friends matching filter." });
+    res
+      .status(404)
+      .json({ error: "No friends matching gender " + filterGender });
   }
 });
 
@@ -60,20 +96,11 @@ router.get("/info", (req, res) => {
 router.get("/:id", (req, res) => {
   console.log(req.params);
   let friendId = req.params.id; // 'id' here will be a value matching anything after the / in the request path
-  let matchedFriend;
-  if (friendId) {
-    matchedFriend = friends.find((friend) => friend.id == friendId);
-  }
-  if (matchedFriend) {
-    return res.status(200).json(matchedFriend);
-  } else {
-    return res.status(404).json({ error: "No friend matching ID" });
-  }
 
   // Modify this function to find and return the friend matching the given ID, or a 404 if not found
 
   // Modify this response with the matched friend, or a 404 if not found
-  // res.json({ result: "Finding friend with ID " + friendId });
+  res.json({ result: "Finding friend with ID " + friendId });
 });
 
 // a POST request with data sent in the body of the request, representing a new friend to add to our list
@@ -102,20 +129,35 @@ router.put("/:id", (req, res) => {
   let updatedFriend = req.body;
 
   // Replace the old friend data for friendId with the new data from updatedFriend
-  const friendToUpdate = friends.find((friend) => friend.id == friendId);
-  friendToUpdate.name = updatedFriend.name;
-  friendToUpdate.gender = updatedFriend.gender;
-  console.log(friends);
 
   // Modify this response with the updated friend, or a 404 if not found
-  if (response.status(200)) {
-    res.json({
-      result: "Updated friend with ID " + friendId,
-      data: updatedFriend,
-    });
-  } else {
-    res.status(404).json({ error: "No friend matching ID" });
-  }
+  res.json({
+    result: "Updated friend with ID " + friendId,
+    data: updatedFriend,
+  });
 });
 
 export default router;
+
+// pagination endpoint, gets friends matching th
+// const { page, limit } = req.query;
+
+// If pagination is requested, validate and slice
+// if (page !== undefined || limit !== undefined) {
+//   const pageNum = parseInt(page || "1", 10);
+//   const limitNum = parseInt(limit || "10", 10);
+
+//   if (
+//     Number.isNaN(pageNum) ||
+//     Number.isNaN(limitNum) ||
+//     pageNum < 1 ||
+//     limitNum < 1
+//   ) {
+//     return res.status(400).json({ error: "Invalid page or limit" });
+//   }
+
+//   const startIndex = (pageNum - 1) * limitNum;
+//   const endIndex = startIndex + limitNum;
+//   const paged = friends.slice(startIndex, endIndex);
+//   return res.json(paged);
+// }
