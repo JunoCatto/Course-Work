@@ -26,9 +26,45 @@ const keys = [
   "=",
 ];
 const operators = ["%", "/", "×", "−", "+"];
+const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [display, setDisplay] = useState("");
+  const [operator, setOperator] = useState("");
+  const [previous, setPrevious] = useState("");
+
+  function compute({ a, b, op }) {
+    let result;
+    switch (op) {
+      case "+":
+        result = a + b;
+    }
+    setDisplay(result);
+  }
+
+  const handleClick = (key) => {
+    if (key === "AC") {
+      setDisplay("");
+      setOperator("");
+      setPrevious("");
+      return;
+    }
+    if (key === "DEL") {
+      setDisplay(display.slice(0, -1));
+    }
+    if (key === "=") {
+      compute({ previous, display, operator });
+    }
+    if (numbers.includes(key)) {
+      setDisplay((previous) => previous + key);
+    }
+    if (operators.includes(key)) {
+      setPrevious(display);
+      setDisplay("");
+      setOperator(key);
+    }
+  };
+
   const getClass = (key) => {
     if (key === 0) {
       return "key wide";
@@ -49,12 +85,18 @@ function App() {
           id="display"
           className="display"
           type="text"
-          value="0"
+          value={display}
           readonly
         />
         <div className="keys">
           {keys.map((key) => (
-            <button className={getClass(key)}>{key}</button>
+            <button
+              onClick={() => handleClick(key)}
+              key={key}
+              className={getClass(key)}
+            >
+              {key}
+            </button>
           ))}
         </div>
       </div>
