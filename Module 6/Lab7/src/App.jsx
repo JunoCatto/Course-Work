@@ -6,6 +6,8 @@ import CountButton from "./CountButton";
 
 function App() {
   const [count, setCount] = useState(0);
+  const increaseCount = () => setCount((count) => count + 1);
+  const decreaseCount = () => setCount((count) => count - 1);
 
   return (
     <>
@@ -19,7 +21,9 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <CountButton count={count} setCount={setCount} />
+        <div>Count is {count}</div>
+        <CountButton display="+" click={increaseCount} />
+        <CountButton display="-" click={decreaseCount} />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
