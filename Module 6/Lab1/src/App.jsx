@@ -1,30 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Pet from './Pet.jsx'
-import Emoji from './Emoji.jsx'
-import { MoviesList } from './Movielist.jsx'
-import { BigCats } from './BigCats.jsx'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Pet from "./Pet.jsx";
+import Emoji from "./Emoji.jsx";
+import { MoviesList } from "./Movielist.jsx";
+import { BigCats } from "./BigCats.jsx";
+import { AddCatForm } from "./AddCatForm.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  const emojiMoods = ["😀","😁","😈","🤕","🤥","🙂‍↕️"]
-  const [emojiIndex, setEmojiIndex] = useState(0)
+  const emojiMoods = ["😀", "😁", "😈", "🤕", "🤥", "🙂‍↕️"];
+  const [emojiIndex, setEmojiIndex] = useState(0);
 
   const changeEmoji = () => {
-    setEmojiIndex((prevIndex) => (prevIndex + 1) % emojiMoods.length)
-  }
+    setEmojiIndex((prevIndex) => (prevIndex + 1) % emojiMoods.length);
+  };
 
-function City ({name, state = 'NSW', country = 'Australia', children}) {
-return (
-  <div className="City">
-    <strong>{name}</strong> is in {state}, {country}.
-    {children}
-  </div>
-)
-}
+  function City({ name, state = "NSW", country = "Australia", children }) {
+    return (
+      <div className="City">
+        <strong>{name}</strong> is in {state}, {country}.{children}
+      </div>
+    );
+  }
 
   return (
     <>
@@ -53,13 +53,13 @@ return (
       </City> */}
       {/* <Pet name="Monkey" colour="Calico" type="Cat">
         </Pet> */}
-        <Emoji emoji={emojiMoods[emojiIndex]}/>
-    
-        <button onClick={changeEmoji}>Change Emoji</button>
+      {/* <Emoji emoji={emojiMoods[emojiIndex]}/> */}
 
-        <MoviesList />
-        <BigCats />
-        </>
-  )
+      {/* <button onClick={changeEmoji}>Change Emoji</button> */}
+
+      {/* <MoviesList /> */}
+      <BigCats />
+    </>
+  );
 }
-export default App
+export default App;
