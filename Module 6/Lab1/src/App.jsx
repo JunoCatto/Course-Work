@@ -53,9 +53,9 @@ function App() {
       </City> */}
       {/* <Pet name="Monkey" colour="Calico" type="Cat">
         </Pet> */}
-      {/* <Emoji emoji={emojiMoods[emojiIndex]}/> */}
+      <Emoji emoji={emojiMoods[emojiIndex]} />
 
-      {/* <button onClick={changeEmoji}>Change Emoji</button> */}
+      <button onClick={changeEmoji}>Change Emoji</button>
 
       {/* <MoviesList /> */}
       <BigCats />

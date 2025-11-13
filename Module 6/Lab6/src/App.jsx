@@ -37,9 +37,9 @@ function App() {
     let result;
     switch (op) {
       case "+":
-        result = a + b;
+        result = +a + +b;
     }
-    setDisplay(result);
+    setDisplay(result.toString());
   }
 
   const handleClick = (key) => {
@@ -53,7 +53,8 @@ function App() {
       setDisplay(display.slice(0, -1));
     }
     if (key === "=") {
-      compute({ previous, display, operator });
+      compute({ a: previous, b: display, op: operator });
+      return;
     }
     if (numbers.includes(key)) {
       setDisplay((previous) => previous + key);

@@ -92,7 +92,7 @@ router.post("/", (req, res) => {
   }
 
   // if the new friend is valid, add them to the list and return the successfully added object
-  push(newFriend);
+  friends.push(newFriend);
   res.status(200).json(newFriend);
 });
 
