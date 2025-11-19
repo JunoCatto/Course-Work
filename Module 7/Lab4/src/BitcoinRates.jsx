@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useData } from "./useData";
-import Emoji from "./Emoji.jsx";
 
 const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 
@@ -42,7 +41,6 @@ function BitcoinRates() {
         <div>
           <strong>Current Exchange Rate: </strong>
           {exchangeRate}
-          <Emoji />
         </div>
       )}
     </div>
