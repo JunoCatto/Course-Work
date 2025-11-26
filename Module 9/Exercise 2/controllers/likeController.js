@@ -1,27 +1,22 @@
 "use strict";
 
-let Models = require("../models"); // matches index.js
+let Models = require("../models");
 
-const getUsers = (res) => {
-  // finds all users
-
-  Models.User.find({})
-
+const getLikes = (req, res) => {
+  Models.Like.find({ userId: req.params.uid, postId: req.params.pid })
     .then((data) => res.send({ result: 200, data: data }))
-
     .catch((err) => {
       console.log(err);
-
       res.send({ result: 500, error: err.message });
     });
 };
 
-const createUser = (data, res) => {
-  // creates a new user using JSON data POSTed in request body
-
-  console.log(data);
-
-  new Models.User(data)
+const createLike = (req, res) => {
+  new Models.Like({
+    ...req.body,
+    userId: req.params.uid,
+    postId: req.params.pid,
+  })
     .save()
     .then((data) => res.send({ result: 200, data: data }))
     .catch((err) => {
@@ -30,25 +25,19 @@ const createUser = (data, res) => {
     });
 };
 
-const updateUser = (req, res) => {
-  // updates the user matching the ID from the param using JSON data POSTed in request body
-
-  console.log(req.body);
-  Models.User.findByIdAndUpdate(req.params.id, req.body, {
+const updateLike = (req, res) => {
+  Models.Like.findByIdAndUpdate(req.params.lid, req.body, {
     new: true,
   })
     .then((data) => res.send({ result: 200, data: data }))
-
     .catch((err) => {
       console.log(err);
       res.send({ result: 500, error: err.message });
     });
 };
 
-const deleteUser = (req, res) => {
-  // deletes the user matching the ID from the param
-
-  Models.User.findByIdAndDelete(req.params.id)
+const deleteLike = (req, res) => {
+  Models.Like.findByIdAndDelete(req.params.lid)
     .then((data) => res.send({ result: 200, data: data }))
     .catch((err) => {
       console.log(err);
@@ -57,8 +46,8 @@ const deleteUser = (req, res) => {
 };
 
 module.exports = {
-  getUsers,
-  createUser,
-  updateUser,
-  deleteUser,
+  getLikes,
+  createLike,
+  updateLike,
+  deleteLike,
 };

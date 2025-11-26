@@ -2,16 +2,13 @@
 
 let Models = require("../models"); // matches index.js
 
-const getComments = (res) => {
+const getComments = (req, res) => {
   // finds all users
 
-  Models.Comment.find({})
-
+  Models.Comment.find({ userId: req.params.uid, postId: req.params.pid })
     .then((data) => res.send({ result: 200, data: data }))
-
     .catch((err) => {
       console.log(err);
-
       res.send({ result: 500, error: err.message });
     });
 };
