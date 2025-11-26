@@ -1,0 +1,23 @@
+{
+  "name": "module.5",
+  "version": "1.0.0",
+  "main": "exercise.1.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "swagger-ui-express": "^4.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "serve": "^14.2.5",
+    "supertest": "^6.3.4",
+    "vitest": "^1.6.0"
+  }
+}
