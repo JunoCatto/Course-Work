@@ -14,8 +14,22 @@ const getUserPosts = (req, res) => {
     });
 };
 
+// await example
+const createPost2 = async (req, res) => {
+  const response = await fetch("https://api.disneyapi.dev/character");
+  const data = await response.json();
+  const randomCharacter =
+    data.data[Math.floor(Math.random() * data.data.length)];
+  console.log(req.body);
+  const post = await new Models.Post({
+    ...req.body,
+    author: req.params.pid,
+    image_url: randomCharacter.imageUrl,
+  }).save();
+  res.send({ result: 200, data: post });
+};
+
 const createPost = (req, res) => {
-  // creates a new user using JSON data POSTed in request body
   console.log(req.body);
   new Models.Post({ ...req.body, author: req.params.pid })
     .save()

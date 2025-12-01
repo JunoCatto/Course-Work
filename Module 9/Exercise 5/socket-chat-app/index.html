@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket Chat App</title>
+</head>
+
+<body>
+    <h2>Welcome to Socket Chat</h2>
+
+    <section>
+        <form id="setNick" autocomplete="off">
+            <label for="nickInput">Your nickname:</label>
+            <input id="nickInput" type="text" placeholder="Enter nickname" />
+            <button type="submit">Set</button>
+            <span>Current: <strong id="currentNick">...</strong></span>
+        </form>
+    </section>
+
+    <section style="display: flex; gap: 24px; align-items: flex-start">
+        <div style="flex: 2 1 auto">
+            <ul id="messages" style="list-style: none; padding: 0; margin: 0 0 8px 0"></ul>
+            <div id="typing" style="font-size: 0.9em; color: #666; min-height: 1.2em"></div>
+            <form id="form" action="">
+                <input id="input" autocomplete="off" placeholder="Type a message and hit Enter" style="width: 75%" />
+                <button>Send</button>
+            </form>
+        </div>
+        <div style="flex: 1 1 200px">
+            <h4>Online</h4>
+            <ul id="users" style="list-style: none; padding: 0; margin: 0"></ul>
+        </div>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        // Elements
+        const messagesEl = document.getElementById("messages");
+        const usersEl = document.getElementById("users");
+        const typingEl = document.getElementById("typing");
+        const formEl = document.getElementById("form");
+        const inputEl = document.getElementById("input");
+        const setNickFormEl = document.getElementById("setNick");
+        const nickInputEl = document.getElementById("nickInput");
+        const currentNickEl = document.getElementById("currentNick");
+
+        let currentNickname = "";
+        let typingTimeoutId = null;
+
+        function appendMessage(text, cssClass) {
+            const li = document.createElement("li");
+            li.textContent = text;
+            if (cssClass) li.className = cssClass;
+            messagesEl.appendChild(li);
+            li.scrollIntoView();
+        }
+
+        function stopTyping() {
+            socket.emit("stop typing");
+        }
+
+        // Incoming events
+        socket.on("nickname", (name) => {
+            currentNickname = name;
+            currentNickEl.textContent = name;
+        });
+
+        socket.on("system", (text) => {
+            appendMessage(text, "system");
+        });
+
+        socket.on("chat message", (msg) => {
+            appendMessage(msg.user + ": " + msg.text);
+        });
+
+        socket.on("typing", (name) => {
+            typingEl.textContent = name + " is typing...";
+        });
+
+        socket.on("stop typing", () => {
+            typingEl.textContent = "";
+        });
+
+        socket.on("online users", (list) => {
+            usersEl.innerHTML = "";
+            list.forEach((u) => {
+                const li = document.createElement("li");
+                li.textContent = u;
+                usersEl.appendChild(li);
+            });
+        });
+
+        // Outgoing events
+        formEl.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const text = inputEl.value.trim();
+            if (!text) return;
+            // Local echo (do not wait for server)
+            appendMessage("You: " + text, "me");
+            socket.emit("chat message", text);
+            inputEl.value = "";
+            stopTyping();
+        });
+
+        inputEl.addEventListener("input", () => {
+            socket.emit("typing");
+            if (typingTimeoutId) clearTimeout(typingTimeoutId);
+            typingTimeoutId = setTimeout(stopTyping, 500);
+        });
+
+        setNickFormEl.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const desired = nickInputEl.value.trim();
+            if (!desired) return;
+            socket.emit("set nickname", desired);
+            nickInputEl.value = "";
+        });
+    </script>
+</body>
+
+</html> index.html
