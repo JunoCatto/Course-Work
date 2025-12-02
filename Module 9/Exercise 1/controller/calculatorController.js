@@ -1,4 +1,4 @@
-import { Calculator } from "./library/calculator.js";
+import { Calculator } from "../library/calculator.js";
 
 export const add = (req, res) => {
   const a = Number(req.query.a); // read from query

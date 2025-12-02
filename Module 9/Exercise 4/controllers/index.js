@@ -3,4 +3,5 @@ module.exports = {
   postController: require("./postController"),
   commentController: require("./commentController"),
   likeController: require("./likeController"),
+  catFactsController: require("./catFactsController"),
 };

@@ -13,6 +13,10 @@ let userRoutes = require("../routes/userRoutes");
 
 app.use("/api/users", userRoutes);
 
+let catFactsRoutes = require("../routes/catFactsRoutes");
+
+app.use("/api/catfacts", catFactsRoutes);
+
 // set port, listen for requests
 
 const PORT = process.env.PORT || 8080;
